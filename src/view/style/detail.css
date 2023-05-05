@@ -1,0 +1,46 @@
+.pr-div{
+height: 70vh;
+width: 70vh;
+background-color: blue;
+max-width: 100%;
+
+}
+img.pr-img{
+    height: 100%;
+    width: 100%;
+}
+.p_sell{
+    font-size: 2.5rem;
+    font-weight: 700;
+    padding: 10px;
+  }
+  .p_mrp{
+    font-size: larger;
+    font-weight: 400;
+    color: rgb(47, 157, 120);
+    padding: 5px;
+  }
+  .p_dis{
+    font-size: larger;
+    font-weight: 500;
+    color: rgb(153, 153, 29);
+    padding: 5px;
+  
+  }
+  .stock{
+    font-size: 25px;
+    color: rgb(160, 143, 120);
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    
+
+
+  }
+  .detail{
+    font-size: large;
+  }
+  .rating{
+    font-size: 25px;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    color: rgb(92, 183, 0);
+  }
+  
