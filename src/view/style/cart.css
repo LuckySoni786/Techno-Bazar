@@ -1,0 +1,52 @@
+div.cart-title{
+    font-size: 2em;
+}
+.cart-text{
+    font-size: 1.4em;
+    
+}
+.ca-dis{
+    font-weight: 500;
+    color: rgb(157, 200, 16);
+    letter-spacing:0ch;
+}
+.ca-mrp{
+    color: rgb(104, 119, 75);
+    font-size: large;
+    font-weight: 400;
+}
+.d-date{
+border-right: 1px solid black;
+font-size:medium;
+padding-right: 5px;
+}
+.f-delv{
+    font-size:medium;
+    padding-right: 5px;
+    color: rgb(161, 161, 6);
+    font-weight: 500;
+}
+.d-price{
+    font-size:medium;
+    padding-right: 5px;
+    color: rgb(104, 119, 75);
+    font-weight: 400;
+}
+button.remove-btn{
+    border: 1px solid rgb(203, 219, 203);
+    box-shadow: 0px 0px 2px black;
+    background-color: transparent;
+    
+}
+button.remove-btn:hover{
+    background-color: rgb(222, 219, 228);
+    color: aqua;
+    transition: .3s;
+}
+.trash{
+    color:rgb(57, 88, 20) ;
+}
+.trash:hover{
+    transition: .3s;
+    color: rgb(82, 7, 186);
+}

@@ -1,13 +1,14 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPowerOff, faSearch } from '@fortawesome/free-solid-svg-icons';
+import { faCartArrowDown,faPowerOff, faSearch,fatrash} from '@fortawesome/free-solid-svg-icons';
 import { useState } from 'react';
 import Home from './view/screen/home';
+import Vmore from './view/screen/Vmore'
 import About from './view/screen/About'
 import Contact from './view/screen/Contact'
 import Login from './view/screen/Login'
 import Register from './view/screen/Register'
-import Cart from './view/screen/Cart';
+import Addtocart from './view/screen/Addtocart'
 import { menubar } from './view/Data/Data';
 import Detail from './view/screen/Detail';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -44,7 +45,7 @@ function App() {
         <Container className='bg-primary' fluid>
           <Row>
             <Col>
-              <Navbar bg="light" expand="lg">
+              <Navbar className='bg-light' expand="lg">
                 <Container fluid>
                   <Navbar.Brand href="/"><span className='logo1'><span className='w1'>T</span><span className='w2'>e</span><span className='w3'>c</span><span className='w4'>h</span><span className='w5'>n</span><span className='w6'>o</span><span className='logo2'> Bazar</span></span></Navbar.Brand>
                   <Navbar.Toggle aria-controls="navbarScroll" />
@@ -53,19 +54,22 @@ function App() {
                       className="me-auto my-2 my-lg-0"
                       style={{ maxHeight: '100px' }}
                       navbarScroll>
-                      <Nav.Link><Link to={`/`} className=" text-decoration-none text-danger">Home</Link></Nav.Link>
+                      <Nav.Link><Link to={`/`} className="home">Home</Link></Nav.Link>
                       {
                         menubar.map(function (d) {
                           return (
-                            <Nav.Link><Link to={`/${d}`} className="text-decoration-none text-danger">{d}</Link></Nav.Link>
+                            <Nav.Link><Link to={`/${d}`} className="home text-decoration-none">{d}</Link></Nav.Link>
                           )
                         })
                       }
                       {user ? null : <>
-                        <Nav.Link><Link to={"/register"} className="text-decoration-none text-danger">Register</Link></Nav.Link>
-                        <Nav.Link><Link to={"/login"} className="text-decoration-none text-danger">Login</Link></Nav.Link>
+                        <Nav.Link><Link to={"/register"} className=" home text-decoration-none">Register</Link></Nav.Link>
+                        <Nav.Link><Link to={"/login"} className="home text-decoration-none">Login</Link></Nav.Link>
                       </>
                       }
+                      {
+                      user ? <Nav.Link><Link to={`/Addtocart`} className="a-cart"><FontAwesomeIcon icon={faCartArrowDown} /> Cart</Link></Nav.Link> : null
+                      } 
                       {/* <NavDropdown title="Link" id="navbarScrollingDropdown">
                         <NavDropdown.Item href="#action3">Action</NavDropdown.Item>
                         <NavDropdown.Item href="#action4">
@@ -99,7 +103,7 @@ function App() {
         {/* <Link className='links' to='/'>Home</Link> 
             <Link className='links' to='/About'>About</Link>
             <Link className='links' to='/Login'>Login</Link>
-            <Link className='links' to='/Cart'>Cart</Link>  */}
+            <Link className='links' to='/Addtocart'>Addtocart</Link>  */}
 
 
 
@@ -107,18 +111,19 @@ function App() {
         <Routes>
           {
             user ? null :
-             <>
-             <Route path="/Login" element={<Login />} />
-              <Route path="/Register" element={<Register />} />
-            </>
+              <>
+                <Route path="/Login" element={<Login />} />
+                <Route path="/Register" element={<Register />} />
+              </>
           }
 
 
           <Route path="/" element={<Home />} />
           <Route path="/About" element={<About />} />
-          <Route path="/Cart" element={<Cart />} />
+          <Route path="/Addtocart" element={<Addtocart />} />
           <Route path="/Contact" element={<Contact />} />
           <Route path="/Detail" element={<Detail />} />
+          <Route path="/Vmore" element={<Vmore/>} />
         </Routes>
 
         <Row>
@@ -130,7 +135,8 @@ function App() {
                     floating
                     className='m-1'
                     style={{ backgroundColor: '#3b5998' }}
-                    href='#!'
+                    href='https://www.facebook.com/'
+                    target='blank'
                     role='button'
                   >
                     <MDBIcon fab icon='facebook' />
@@ -140,7 +146,8 @@ function App() {
                     floating
                     className='m-1'
                     style={{ backgroundColor: '#55acee' }}
-                    href='#!'
+                    href='https://twitter.com/home'
+                    target='blank'
                     role='button'
                   >
                     <MDBIcon fab icon='twitter' />
@@ -150,7 +157,8 @@ function App() {
                     floating
                     className='m-1'
                     style={{ backgroundColor: '#dd4b39' }}
-                    href='#!'
+                    href='https://www.google.com/'
+                    target='blank'
                     role='button'
                   >
                     <MDBIcon fab icon='google' />
@@ -159,7 +167,8 @@ function App() {
                     floating
                     className='m-1'
                     style={{ backgroundColor: '#ac2bac' }}
-                    href='#!'
+                    href='https://www.instagram.com/'
+                    target='blank'
                     role='button'
                   >
                     <MDBIcon fab icon='instagram' />
@@ -169,7 +178,8 @@ function App() {
                     floating
                     className='m-1'
                     style={{ backgroundColor: '#0082ca' }}
-                    href='#!'
+                    href='https://www.linkedin.com/feed/'
+                    target='blank'
                     role='button'
                   >
                     <MDBIcon fab icon='linkedin-in' />
@@ -179,7 +189,8 @@ function App() {
                     floating
                     className='m-1'
                     style={{ backgroundColor: '#333333' }}
-                    href='#!'
+                    href='https://www.youtube.com/@TechnicalLucky-gh9kv/videos'
+                    target='blank'
                     role='button'
                   >
                     <MDBIcon fab icon='youtube' />
@@ -189,8 +200,8 @@ function App() {
 
               <div className='text-center p-3' style={{ backgroundColor: 'green', fontSize: 'larger' }}>
                 © 2023 Copyright:
-                <a className='text-white' href=' https://mdbootstrap.com/ ' >
-                  <span> MDBootstrap.com</span>
+                <a className='text-white' href='/' >
+                  <span> Techno_Bazar.com</span>
                 </a>
               </div>
             </MDBFooter>

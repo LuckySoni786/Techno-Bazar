@@ -92,10 +92,18 @@ app.post('/postdata',function(req,res){
     res.send(req.body)
    })
 app.post('/addtocart',function(req,res){
-    fs.appendFileSync('./data/addtocart.json', JSON.stringify(req.body),"utf8")
+    let result = fs.appendFileSync('./data/addtocart.json', JSON.stringify(req.body),"utf8")
     fs.appendFileSync('./data/addtocart.json', "\n","utf8")
+    let resultdata=""
     
-    res.send(req.body)
+    if(!result){
+        resultdata={success:true,message:"data insert successfully"}
+    }
+    else{
+        resultdata={success:false,message:"data not insert successfully"}
+        
+    }
+    res.send(resultdata)
  })
 
  

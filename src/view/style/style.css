@@ -1,137 +1,42 @@
+
 div.bg-primary.container-fluid{
     margin: 0%;
     padding: 0%;
     /* display:grid; */
 }
+/* cards 1 css */
 
-img.card-img-top.c1:hover{
-    transition: .6s;
-    transform: translateY(-6%);
-    border-radius: 30px ;
-    box-shadow: 0px 1px 7px black;
+div.inner{
+  overflow: hidden;
 }
+div.inner img{
+  transition: all .6s ease;
+  padding: 5px;
+}
+div.inner:hover img{
+  transform: scale(1.07);
+}
+img.card-img-top.c1:hover{
+  cursor: pointer;
+}
+div.card1st.card:hover{
+    box-shadow: 0px 1px 10px 0px black;
+    transition:.3s;
+}
+
 div.card-body{
 letter-spacing: 1.2px;
 text-align: center;
-
 }
-div.row-bg{
-    height: 100vh;
-    width: 100%;
-    /* background-color: rgb(122, 250, 11); */
-    margin: auto;
-    margin-top: 5rem;
-    
-}
-.vid-bg{ 
-    height: 100%; 
-    width: 100%;
-    position: relative;
-    background-color: rgb(59, 92, 48); 
-}
-#video{
-    height: 100%;
-    width: 100%;
-    object-fit:cover;   
-}
-div.content{
-    height: 100%;
-    width: 100%;
-    /* background-color:rgb(230, 89, 89) ; */
-    position: absolute;
-    top: 0%;
-    right: 0%;
-    text-align: center;
-}
-div.in-card{
-    height: 35%;
-    width: 35%;
-    /* background-color: blue; */
-    display:inline-block;
-    margin: 4% 5%;
-    text-align: center;
-    justify-content: center;
-
-}
-div.v-card.card{
-    border: none;
-    box-shadow: 1px 3px 5px rgb(207, 185, 185);
-}
-p.card-text.c2-text {
-    /* media queries */
-    @media (max-width: 525px) {
-      text-align: center;
-      font-size:.8rem;
-    }
-    @media (max-width: 400px) {
-      text-align: center;
-      font-size:.6rem;
-    }
-  }
-  div.card-title.c2-title{
-    @media (max-width: 400px) {
-        text-align: center;
-        font-size:.8rem;
-      }
-    @media (max-width: 280px) {
-        text-align: center;
-        
-        
-      }
-  }
-  
-  img.card-img-top.c1:hover{
-    cursor: pointer;
-  }
-  div.card-body.bdy{
-    box-sizing: border-box;
-    position: absolute;
-    background-color: rgba(255, 255, 255, 0.742);
-    bottom: 0%;
-    height: 3rem;
-    transition: .5s;
-    border-radius: .1rem;
-  }
-  p.card-text.c2-text{
-    visibility: hidden;
-    opacity: 0;
-  }
-  div.v-card.card:hover .bdy{
-    height: 12rem;
-    background-color: aliceblue;
-   }
-   div.v-card.card:hover .card-text{
-    opacity: 1;
-    visibility: visible;
-    transition: .5s;
-   }
-  
-   div.in-card{
-    /* media queries */
-    @media (max-width: 720px) {
-      margin-top:20%;
-    }
-    @media (max-width: 280px) {
-        margin-top:35%;
-      
-    }
-  }
- 
   
 div.m-auto.card{
    width: 19rem;
   max-Width: 100%; 
 }
-div.m-auto.card:hover{
-  box-shadow: 0px 1px 10px 0px black;
-  transition: all .3s;
-
-}
 
 img.bd-placeholder-img.rounded-circle.border:hover{
   cursor: pointer;
-  /* transform: scale(1.1); */
-  /* transition: all .9s; */
+  transition:.9s;
   transform: rotateY(180deg);
 }
 img.bd-placeholder-img.rounded-circle.border{
@@ -152,18 +57,7 @@ width: 3rem;
 height: 3rem;
 border-radius: 40px;
 }
-.big_card{
-  width: 90%;
-  position: relative;
-  left: 5%;
-  box-shadow: 0px 3px 10px 1px black;
-}
-img.big-img:hover{
-  transition:ease-in .4s;
-  transform: scale(.9);
 
-  
-}
 .b-t-align{
   text-align:start;
   padding: 5px;
@@ -278,4 +172,110 @@ button.search-btn:hover{
   color: rgb(20, 114, 98);
   font-size: larger;
 }
+/* nav css */
 
+
+.home{
+  position: relative;
+  text-decoration: none;
+  font-size: larger;
+  Color:rgb(42, 87, 49);
+  font-weight: 700;
+  
+
+}
+.home::after{
+  content: "";
+  position: absolute;
+  bottom: -4px;
+  height: 2.5px;
+  width: 100%;
+  left: 0;
+  background-color: rgb(82, 210, 13);
+  transition: 0.3s;
+  transition-timing-function: ease-in-out;
+  transform: scaleX(0);
+}
+.home:hover::after{
+  transform: scaleX(1);
+
+}
+.home:hover{
+  color: rgb(57, 113, 166);
+  
+}
+.a-cart{
+  font-size: larger;
+  text-decoration: none;
+  font-weight: 500;
+  letter-spacing: 1px;
+  border-left: 0.01em solid black;
+  padding: 0.3em;
+  color: rgb(133, 133, 29);
+}
+.a-cart:hover{
+  color:rgb(62, 180, 8);
+  
+}
+
+/* ------------------------- */
+/* add to cart btn css */
+Button.add-btn{
+  background-color:rgb(135, 107, 42);
+  font-weight: 600;
+  width: 60%;
+}
+Button.add-btn:hover{
+  background-color:rgba(170, 122, 33, 0.826);
+  transition: .4s;
+  
+}
+/* ------------------------- */
+
+/* slider text css */
+div.label{
+  text-shadow: 1px 1px 2px rgb(1, 0, 2);
+  color: rgb(74, 255, 8);
+}
+.label p{
+  text-shadow: 1px 1px 2px rgb(233, 236, 233);
+  color: rgb(33, 11, 117);
+}
+div.label{
+  @media (max-Width:652px) {
+    font-size:15px;
+    margin-bottom:-35px
+  }
+  @media (max-Width:458px) {
+    font-size:12px;
+    margin-bottom:-35px;
+  }
+  @media (max-Width:280px) {
+    font-size:10px;
+    margin-bottom:-45px;
+  }
+}
+.label1{
+  @media (max-Width:652px) {
+    font-size:20px;
+  }
+  @media (max-Width:458px) {
+    font-size:18px;
+    margin-bottom:2px;
+  }
+  
+  @media (max-Width:280px) {
+    font-size:15px;
+  }
+}
+div.carousel-indicators{
+  @media (max-Width:652px) {
+    margin-bottom:1px 
+  }
+  
+  @media (max-Width:280px) {
+    margin-bottom:-3px;
+  }
+ 
+}
+/* ----------------------- */
