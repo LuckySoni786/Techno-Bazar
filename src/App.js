@@ -126,7 +126,7 @@ function App() {
           <Route path="/Vmore" element={<Vmore/>} />
         </Routes>
 
-        <Row>
+        <Row className='footer'>
           <Col>
             <MDBFooter className='bg-light text-center text-white'>
               <MDBContainer className='p-4 pb-0'>

@@ -1,4 +1,5 @@
-import '../style/style.css'
+import '../style/style.css';
+// import Fade  from 'react-reveal/Fade';
 import { useNavigate } from 'react-router-dom';
 import { slider, cards, video, cards2, big_card, circle_cards } from '../Data/Data';
 import { MDBRow, MDBCol, MDBCardText, MDBCardTitle, MDBCardBody, MDBCardImage, MDBCard } from 'mdb-react-ui-kit';
@@ -39,6 +40,7 @@ function Home() {
                     cards.map(function (d) {
                         return (
                             <Col className='mt-5 col-lg-3 col-md-4' sm={6}>
+                                {/* <Fade top duration={2000}> */}
                                 <Card className='card1st h-100'>
                                     <div className='inner'>
                                         <Card.Img variant="top" src={d.img} className='c1' onClick={() => nav('/Detail', { state: { product: d } })} />
@@ -54,6 +56,7 @@ function Home() {
                                         <Button className='add-btn'>Add to Cart</Button>
                                     </div>
                                 </Card>
+                                {/* </Fade> */}
                             </Col>
                         )
                     })
