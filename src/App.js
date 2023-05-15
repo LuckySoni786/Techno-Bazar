@@ -26,6 +26,7 @@ import {
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 import { Col, Container, Row, Button, Form, Nav, Navbar, NavDropdown, Offcanvas } from 'react-bootstrap';
 import OrderPlace from './view/screen/OrderPlace';
+import Profile from './view/screen/Profile';
 function App() {
   console.log(menubar);
   const [user, setUser] = useState(localStorage.getItem('user'));
@@ -69,7 +70,7 @@ function App() {
                       </>
                       }
                       {
-                      user ? <Nav.Link><Link to={`/Addtocart`} className="a-cart"><FontAwesomeIcon icon={faCartArrowDown} /> Cart</Link></Nav.Link> : null
+                      user ?<><Nav.Link><Link to={`/Addtocart`} className="a-cart"><FontAwesomeIcon icon={faCartArrowDown} /> Cart</Link></Nav.Link>  <Nav.Link><Link to={`/profile`} className="a-cart"> Profile</Link></Nav.Link></> : null
                       } 
                       {/* <NavDropdown title="Link" id="navbarScrollingDropdown">
                         <NavDropdown.Item href="#action3">Action</NavDropdown.Item>
@@ -111,7 +112,10 @@ function App() {
 
         <Routes>
           {
-            user ? null :
+            user ? <> <Route path="/Addtocart" element={<Addtocart />} />
+          
+            <Route path="/order" element={<OrderPlace/>} />
+            <Route path="/profile" element={<Profile/>} /> </>:
               <>
                 <Route path="/Login" element={<Login />} />
                 <Route path="/Register" element={<Register />} />
@@ -121,11 +125,10 @@ function App() {
 
           <Route path="/" element={<Home />} />
           <Route path="/About" element={<About />} />
-          <Route path="/Addtocart" element={<Addtocart />} />
+         
           <Route path="/Contact" element={<Contact />} />
           <Route path="/Detail" element={<Detail />} />
           <Route path="/Vmore" element={<Vmore/>} />
-          <Route path="/order" element={<OrderPlace/>} />
         </Routes>
 
         <Row className='footer'>

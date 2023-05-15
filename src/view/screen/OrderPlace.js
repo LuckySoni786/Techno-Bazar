@@ -1,132 +1,109 @@
-export default function OrderPlace(){
+import axios from "axios";
+import { useState } from "react"
+import { Container ,Row,Col,Form,Button} from "react-bootstrap";
+import { useLocation, useNavigate } from "react-router-dom"
 
-    
+
+export default function OrderPlace(){
+let nav=useNavigate()
+const loc=useLocation()
+const[pay,setPay] =useState(loc.state)
+console.log(pay);
+const [acno,setAcno]=useState('');
+const [user,setUserdata]=useState(localStorage.getItem('user'));
+const [fsc,setFsc]=useState('');
+const [acname,setAcname]=useState('');
+const [add,setAdd]=useState('');
+
+console.log(user);
+async function paymentpage(){
+    if(acno!==''&& fsc!==''&& acname!==''&& add!==''){
+      let params={
+        acno:acno,
+        acname:acname,
+        fsc:fsc,
+        pay:pay,
+        user:user,
+        add:add
+      }
+      let res= await axios.post("payment",params).catch(e=>console.log(e));
+      const{success,message} = res?.data
+if(success){
+
+  alert(message)
+  nav('/profile')
+         
+let res = await axios.post('removecartitem', {}).catch(e=>console.log(e))
+
+
+}
+else{
+  alert(message)
+
+}
+    }
+    else{
+        alert("Fill All Input")
+    }
+}
     return(
         <>
-       <section class="order-form m-4">
-  <div class="container pt-4">
-      <div class="row">
-          <div class="col-12 px-4">
-              <h1>You can see my Order Form</h1>
-              <span>with some explanation below</span>
-              <hr class="mt-1" />
-          </div>
-
-          <div class="col-12">
-              <div class="row mx-4">
-                  <div class="col-12">
-                      <label class="order-form-label">Name</label>
-                  </div>
-                  <div class="col-sm-6">
-                      <div class="form-outline">
-                          <input type="text" id="form1" class="form-control order-form-input" />
-                          <label class="form-label" for="form1">First</label>
-                      </div>
-                  </div>
-                  <div class="col-sm-6 mt-2 mt-sm-0">
-                      <div class="form-outline">
-                          <input type="text" id="form2" class="form-control order-form-input" />
-                          <label class="form-label" for="form2">Last</label>
-                      </div>
-                  </div>
-              </div>
-
-              <div class="row mt-3 mx-4">
-                  <div class="col-12">
-                      <label class="order-form-label">Type of thing you want to order</label>
-                  </div>
-                  <div class="col-12">
-                      <div class="form-outline">
-                          <input type="text" id="form3" class="form-control order-form-input" />
-                      </div>
-                  </div>
-              </div>
-
-              <div class="row mt-3 mx-4">
-                  <div class="col-12">
-                      <label class="order-form-label">Another type of thing you want to order</label>
-                  </div>
-                  <div class="col-12">
-                      <div class="form-outline">
-                          <input type="text" id="form4" class="form-control order-form-input" />
-                      </div>
-                  </div>
-              </div>
-
-              <div class="row mt-3 mx-4">
-                  <div class="col-12">
-                      <label class="order-form-label" for="date-picker-example">Date</label>
-                  </div>
-                  <div class="col-12">
-                      <div class="form-outline datepicker" data-mdb-toggle-button="false">
-                          <input
-                          type="text" class="form-control order-form-input" id="datepicker1" data-mdb-toggle="datepicker" />
-                          <label for="datepicker1" class="form-label">Select a date</label>
-                      </div>
-                  </div>
-              </div>
-
-              <div class="row mt-3 mx-4">
-                  <div class="col-12">
-                      <label class="order-form-label">Adress</label>
-                  </div>
-                  <div class="col-12">
-                      <div class="form-outline">
-                          <input type="text" id="form5" class="form-control order-form-input" />
-                          <label class="form-label" for="form5">Street Address</label>
-                      </div>
-                  </div>
-                  <div class="col-12 mt-2">
-                      <div class="form-outline">
-                          <input type="text" id="form6" class="form-control order-form-input" />
-                          <label class="form-label" for="form6">Street Address Line 2</label>
-                      </div>
-                  </div>
-                  <div class="col-sm-6 mt-2 pe-sm-2">
-                      <div class="form-outline">
-                          <input type="text" id="form7" class="form-control order-form-input" />
-                          <label class="form-label" for="form7">City</label>
-                      </div>
-                  </div>
-                  <div class="col-sm-6 mt-2 ps-sm-0">
-                      <div class="form-outline">
-                          <input type="text" id="form8" class="form-control order-form-input" />
-                          <label class="form-label" for="form8">Region</label>
-                      </div>
-                  </div>
-                  <div class="col-sm-6 mt-2 pe-sm-2">
-                      <div class="form-outline">
-                          <input type="text" id="form9" class="form-control order-form-input" />
-                          <label class="form-label" for="form9">Postal / Zip Code</label>
-                      </div>
-                  </div>
-                  <div class="col-sm-6 mt-2 ps-sm-0">
-                      <div class="form-outline">
-                          <input type="text" id="form10" class="form-control order-form-input" />
-                          <label class="form-label" for="form10">Country</label>
-                      </div>
-                  </div>
-              </div>
-
-              <div class="row mt-3 mx-4">
-                  <div class="col-12">
-                      <div class="form-check">
-                          <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
-                          <label class="form-check-label" for="flexCheckDefault">I know what I need to know</label>
-                      </div>
-                  </div>
-              </div>
-
-              <div class="row mt-3">
-                  <div class="col-12">
-                      <button type="button" id="btnSubmit" class="btn btn-primary d-block mx-auto btn-submit">Submit</button>
-                  </div>
-              </div>
-          </div>
+       <Container className="m-5">
+        <Row>
+            <Col>
+            <h1 className="bg-primary text-light p-3">Payment</h1>
+          
+            </Col>
+        </Row>
+        <Row>
+            <Col>
+            <div className="w-50 bg-success m-auto rounded p-3 text-light">
+            <h4>Address</h4>
+            <Form>
+      <Form.Group className="mb-3" controlId="formBasicEmail">
+       
+        <Form.Control type="email" placeholder="enter address" value={add} onChange={d=>setAdd(d.target.value)}/>
+        
+      </Form.Group>
+      </Form>
       </div>
-  </div>
-</section>
-        </>
-    )
+      </Col>
+      </Row>
+        <Row>
+            <Col>
+            <div className="w-50 bg-success m-auto rounded p-3 text-light">
+            <h4>Bank Account Details</h4>
+            <Form>
+      <Form.Group className="mb-3" controlId="formBasicEmail">
+       
+        <Form.Control type="email" placeholder="Bank Account Number" value={acno} onChange={d=>setAcno(d.target.value)}/>
+        
+      </Form.Group>
+      <Form.Group className="mb-3" controlId="formBasicEmail">
+       
+       <Form.Control type="email" placeholder="IFSC"  value={fsc} onChange={d=>setFsc(d.target.value)}/>
+       
+     </Form.Group>
+     <Form.Group className="mb-3" controlId="formBasicEmail">
+       
+       <Form.Control type="email" placeholder="Account Holder Name"  value={acname} onChange={d=>setAcname(d.target.value)}/>
+       
+     </Form.Group>
+     <Form.Group className="mb-3" controlId="formBasicEmail">
+       
+       <Form.Control type="text" value={`Rs.${pay}`}  disabled/>
+       
+     </Form.Group>
 
+      <Button variant="primary" onClick={paymentpage} >
+        submit
+      </Button>
+    </Form>
+            </div>
+            </Col>
+        </Row>
+       </Container >
+        </>
+
+    )
 }
