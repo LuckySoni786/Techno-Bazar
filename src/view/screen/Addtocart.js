@@ -5,13 +5,21 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrashCan } from '@fortawesome/free-solid-svg-icons';
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { useNavigate } from 'react-router-dom';
 export default function Addtocart() {
+    const nav = useNavigate()
     const [data, setData] = useState('')
+    const [pay, setPay] = useState('')
     useEffect(() => {
         async function show() {
             let res = await axios.post('showtocart', {})
             console.log(res.data);
             setData(res.data)
+           let pay= res?.data.reduce((total,num)=>{
+       console.log(total.sell);  
+        })
+        console.log(pay);
+
         }
         show()
     }, [])
@@ -65,8 +73,12 @@ export default function Addtocart() {
                 }) : null
             }
           <Row className='bg-success order'>
+            
             <Col className='text-center p-3 '>
-            <Button type='submit' >Place Order</Button>
+          <h3 className='text-light'>Total Pay Amount=Rs.{}</h3>
+            </Col>
+            <Col className='text-center p-3 '>
+           <Button type='submit' onClick={()=>nav("/order")}>Place Order</Button>
             </Col>
           </Row>
         </Container>

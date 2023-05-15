@@ -25,6 +25,7 @@ import {
 } from 'mdb-react-ui-kit';
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 import { Col, Container, Row, Button, Form, Nav, Navbar, NavDropdown, Offcanvas } from 'react-bootstrap';
+import OrderPlace from './view/screen/OrderPlace';
 function App() {
   console.log(menubar);
   const [user, setUser] = useState(localStorage.getItem('user'));
@@ -124,6 +125,7 @@ function App() {
           <Route path="/Contact" element={<Contact />} />
           <Route path="/Detail" element={<Detail />} />
           <Route path="/Vmore" element={<Vmore/>} />
+          <Route path="/order" element={<OrderPlace/>} />
         </Routes>
 
         <Row className='footer'>
