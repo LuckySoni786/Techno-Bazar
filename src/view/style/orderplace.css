@@ -1,0 +1,20 @@
+
+input.box1{
+    width: 90%;
+    margin-right: 5px;
+}
+div.pay-page{
+    background-color: rgb(161, 184, 8);
+}
+
+  video.or-img{
+    position: absolute;
+    height:90%;
+    width: 100%;
+    margin: 0%;
+    object-fit: cover;
+  }
+  h1.payment-t{
+    color: aqua;
+    text-shadow: 1px 1px 4px rgb(0, 1, 0);
+  }

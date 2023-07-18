@@ -41,7 +41,7 @@ function Login() {
         <Container>
             <Row>
                 <Col>
-                    <Form>
+                    <Form data-aos="zoom-out" data-aos-offset="0" data-aos-duration="1500">
                         <h2 class="h1-responsive font-weight-bold text-center my-4">Login</h2>
                         <Form.Group className="mb-3" controlId="formBasicEmail">
                             {/* <Form.Label>Enter Name</Form.Label>

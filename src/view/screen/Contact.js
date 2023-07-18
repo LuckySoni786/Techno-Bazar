@@ -5,7 +5,7 @@ function Contact() {
         <Container>
             <Row className="justify-content-center">
                 <Col className="mt-4" lg={8} md={10} sm={12}>
-                    <form>
+                    <form data-aos="fade-down" data-aos-offset="0" data-aos-duration="1500">
                         <div class="form-outline mb-4">
                             <input type="text" id="form4Example1" placeholder="Enter Your Name" class="form-control" />
                             <label class="form-label" for="form4Example1">Name</label>

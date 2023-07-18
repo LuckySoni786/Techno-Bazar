@@ -11,7 +11,7 @@ function Home() {
 
             <Row>
                 <Col>
-                    <Carousel>
+                    <Carousel data-aos="zoom-out" data-aos-duration="2000">
 
                         {
                             slider.map(function (d) {
@@ -21,7 +21,7 @@ function Home() {
                                             className="d-block w-100"
                                             muted autoPlay loop src={d.img} />
 
-                                        <Carousel.Caption className='label'>
+                                        <Carousel.Caption className='label' data-aos="fade-up" data-aos-offset="0" data-aos-duration="2500">
                                             <h3 className='label1'>{d.label}</h3>
                                             <p>{d.text}</p>
                                         </Carousel.Caption>
@@ -39,7 +39,7 @@ function Home() {
                     cards.map(function (d) {
                         return (
                             <Col className='mt-5 col-lg-3 col-md-4' sm={6}>
-                                <Card className='card1st h-100'>
+                                <Card className='card1st h-100' data-aos="zoom-in-left" data-aos-offset="150" data-aos-duration="2000">
                                     <div className='inner'>
                                         <Card.Img variant="top" src={d.img} className='c1' onClick={() => nav('/Detail', { state: { product: d } })} />
                                     </div>
@@ -51,7 +51,7 @@ function Home() {
 
                                     </Card.Body>
                                     <div className='p-2 text-center'>
-                                        <Button className='add-btn'>Add to Cart</Button>
+                                        <Button className='add-btn' onClick={() => nav('/Detail', { state: { product: d } })}>Add to Cart</Button>
                                     </div>
                                 </Card>
                             </Col>
@@ -66,7 +66,7 @@ function Home() {
                 {
                     circle_cards.map(function (d) {
                         return (
-                            <div class="col-lg-3 px-4 m-auto">
+                            <div class="col-lg-3 px-4 m-auto" data-aos="fade-up" data-aos-duration="1500" data-aos-offset="300">
                                 <img class="bd-placeholder-img rounded-circle border" width="140" height="140" src={d.img}
                                 />
 
@@ -80,7 +80,7 @@ function Home() {
 
             </div>
 
-            <hr className="featurette-divider" />
+            <hr className="featurette-divider" data-aos="fade-up" data-aos-duration="1500" />
 
 
             {/* -------------------------------------------------------------------- */}
@@ -89,7 +89,7 @@ function Home() {
                     cards2.map(function (d) {
                         return (
                             <Col className='mt-5 col-lg-3 col-md-4' sm={6}>
-                                <div class="card1st card h-100">
+                                <div class="card1st card h-100" data-aos="fade-up-right" data-aos-offset="300" data-aos-duration="2000">
                                     <div className='inner'>
                                         <img className="card-img-top" src={d.img} onClick={() => nav('/Detail', { state: { product: d } })} />
                                     </div>
@@ -103,7 +103,7 @@ function Home() {
                                     </div>
                                     <div class="card p-4 pt-0 border-top-0">
                                         <div class="text-center">
-                                            <Button className='add-btn'>Add to Cart</Button></div>
+                                            <Button className='add-btn' onClick={() => nav('/Detail', { state: { product: d } })}>Add to Cart</Button></div>
                                     </div>
                                 </div>
                             </Col>
@@ -118,17 +118,17 @@ function Home() {
                 {
                     big_card.map(function (d) {
                         return (
-                            <Col className='col-md-11 col-11 mx-auto'>
+                            <Col className='col-md-11 col-11 mx-auto' data-aos="fade-down" data-aos-duration="2000" data-aos-offset="500">
                                 <MDBCard className='big_card mt-4'>
                                     <MDBRow>
                                         <MDBCol className='col-md-4 col-11 mx-4 d-flex p-0 align-items-center'>
                                             <div className='inner'>
-                                                <MDBCardImage className='w-100' src={d.img} />
+                                                <MDBCardImage className='w-100' src={d.img} onClick={() => nav('/Detail', { state: { product: d } })} />
                                             </div>
                                         </MDBCol>
                                         <MDBCol className='col-md-7'>
                                             <MDBCardBody className='b-t-box'>
-                                                <MDBCardTitle className='b-t-align'>{d.title}</MDBCardTitle>
+                                                <MDBCardTitle className='b-t-align'>{d.name}</MDBCardTitle>
                                                 <MDBCardText className='b-t-align'>
                                                     <span className='sell'>{d.sell}</span> <span className='mrp'> <del>{d.mrp}</del> </span><span className='dis'> {d.dis}</span>
                                                     <br></br>
@@ -145,8 +145,8 @@ function Home() {
                                                 </div>
 
                                                 <div class=" gap-2 d-md-block my-3">
-                                                    <button class="btn btn-primary col-3 me-5" type="button">Buy Now</button>
-                                                    <button class="btn btn-success col-3" type="button">Add to Cart</button>
+                                                    <button class="btn btn-primary col-3 me-5" type="button" onClick={() => nav('/Detail', { state: { product: d } })}>Buy Now</button>
+                                                    <button class="btn btn-success col-3" type="button" onClick={() => nav('/Detail', { state: { product: d } })}>Add to Cart</button>
                                                 </div>
                                                 <MDBCardText>
                                                     <small className='text-muted'>Last updated 10 mins ago</small>

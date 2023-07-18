@@ -16,14 +16,14 @@ function About() {
         <div class="container-xxl py-5">
             <div class="container">
                 <div class="row g-5">
-                    <div class="col-lg-6 pt-4">
+                    <div class="col-lg-6 pt-4" data-aos="fade-down" data-aos-offset="0" data-aos-duration="1500">
                         <div class="position-relative h-100 wow fadeIn" data-wow-delay="0.1s">
                             <img class="img-fluid w-100 h-100" src={require('../img/abt.jpg')} />
 
 
                         </div>
                     </div>
-                    <div class="col-lg-6">
+                    <div class="col-lg-6" data-aos="fade-up" data-aos-offset="0" data-aos-duration="1500">
                         <h4 class="text-primary text-uppercase">// About Us //</h4>
                         <h1 class="mb-4"><span class="text-primary">Techno Bazar</span> Is The Best Place For shopping Electronic Items</h1>
                         <p class="mb-4">Techno Bazaar takes care of all your facilities and if you shop from here, you will also be given a special discount . All things are available here at reasonable prices . We deliver the goods on time.</p>
@@ -69,19 +69,19 @@ function About() {
 
 
 
-              <br></br><br></br><br></br><br></br>
+            <br></br><br></br><br></br><br></br>
             <MDBContainer className="py-5">
                 <MDBRow className="d-flex justify-content-center">
-                    <MDBCol md="10" xl="8" className="text-center">
+                    <MDBCol md="10" xl="8" className="text-center" data-aos="fade-left" data-aos-offset="0" data-aos-duration="1500">
                         <h1 class="text-primary text-uppercase mb-4">// we love our Customers //</h1>
                         <p className="mb-4 pb-2 mb-md-5 pb-md-0">
-                        These people are the customers who have been shopping from our site for the last 2 years.
+                            These people are the customers who have been shopping from our site for the last 2 years.
                         </p>
                     </MDBCol>
                 </MDBRow>
                 <MDBRow className="text-center d-flex align-items-stretch">
                     <MDBCol md="4" className="mb-5 mb-md-0 d-flex align-items-stretch">
-                        <MDBCard className="testimonial-card">
+                        <MDBCard className="testimonial-card" data-aos="zoom-out-left" data-aos-offset="0" data-aos-duration="1500">
                             <div
                                 className="card-up"
                                 style={{ backgroundColor: "#9d789b" }}
@@ -103,7 +103,7 @@ function About() {
                         </MDBCard>
                     </MDBCol>
                     <MDBCol md="4" className="mb-5 mb-md-0 d-flex align-items-stretch">
-                        <MDBCard className="testimonial-card">
+                        <MDBCard className="testimonial-card" data-aos="fade-up" data-aos-offset="0" data-aos-duration="1500">
                             <div
                                 className="card-up"
                                 style={{ backgroundColor: "#7a81a8" }}
@@ -125,7 +125,7 @@ function About() {
                         </MDBCard>
                     </MDBCol>
                     <MDBCol md="4" className="mb-5 mb-md-0 d-flex align-items-stretch">
-                        <MDBCard className="testimonial-card">
+                        <MDBCard className="testimonial-card" data-aos="zoom-out-right" data-aos-offset="0" data-aos-duration="1500">
                             <div
                                 className="card-up"
                                 style={{ backgroundColor: "#6d5b98" }}

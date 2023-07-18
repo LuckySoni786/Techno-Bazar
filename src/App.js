@@ -1,6 +1,6 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCartArrowDown,faPowerOff, faSearch,fatrash} from '@fortawesome/free-solid-svg-icons';
+import { faCartArrowDown, faPowerOff, faSearch, fatrash } from '@fortawesome/free-solid-svg-icons';
 import { useState } from 'react';
 import Home from './view/screen/home';
 import Vmore from './view/screen/Vmore'
@@ -8,7 +8,9 @@ import About from './view/screen/About'
 import Contact from './view/screen/Contact'
 import Login from './view/screen/Login'
 import Register from './view/screen/Register'
+import Orderplace from './view/screen/Orderplace'
 import Addtocart from './view/screen/Addtocart'
+import Profile from './view/screen/Profile';
 import { menubar } from './view/Data/Data';
 import Detail from './view/screen/Detail';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -25,6 +27,10 @@ import {
 } from 'mdb-react-ui-kit';
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 import { Col, Container, Row, Button, Form, Nav, Navbar, NavDropdown, Offcanvas } from 'react-bootstrap';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+AOS.init({ once: true });
+
 function App() {
   console.log(menubar);
   const [user, setUser] = useState(localStorage.getItem('user'));
@@ -46,7 +52,7 @@ function App() {
           <Row>
             <Col>
               <Navbar className='bg-light' expand="lg">
-                <Container fluid>
+                <Container fluid data-aos="fade-down" data-aos-offset="0" data-aos-duration="1500">
                   <Navbar.Brand href="/"><span className='logo1'><span className='w1'>T</span><span className='w2'>e</span><span className='w3'>c</span><span className='w4'>h</span><span className='w5'>n</span><span className='w6'>o</span><span className='logo2'> Bazar</span></span></Navbar.Brand>
                   <Navbar.Toggle aria-controls="navbarScroll" />
                   <Navbar.Collapse id="navbarScroll">
@@ -68,8 +74,8 @@ function App() {
                       </>
                       }
                       {
-                      user ? <Nav.Link><Link to={`/Addtocart`} className="a-cart"><FontAwesomeIcon icon={faCartArrowDown} /> Cart</Link></Nav.Link> : null
-                      } 
+                        user ? <><Nav.Link><Link to={`/Addtocart`} className="a-cart"><FontAwesomeIcon icon={faCartArrowDown} /> Cart</Link></Nav.Link></> : null
+                      }
                       {/* <NavDropdown title="Link" id="navbarScrollingDropdown">
                         <NavDropdown.Item href="#action3">Action</NavDropdown.Item>
                         <NavDropdown.Item href="#action4">
@@ -91,7 +97,7 @@ function App() {
                       <Button className='search-btn' variant="outline-success"><FontAwesomeIcon icon={faSearch} /></Button>
                     </Form>
                     {
-                      user ? <Button className='log-btn' onClick={logout}><FontAwesomeIcon className='off-icon' icon={faPowerOff} /></Button> : null
+                      user ? <Button className='log-btn' onClick={logout} data-aos="zoom-out" data-aos-offset="0" data-aos-duration="1500"><FontAwesomeIcon className='off-icon' icon={faPowerOff} /></Button> : null
                     }
                   </Navbar.Collapse>
                 </Container>
@@ -110,28 +116,35 @@ function App() {
 
         <Routes>
           {
-            user ? null :
+
+            user ? <> <Route path="/Addtocart" element={<Addtocart />} />
+
+              <Route path="/order" element={<Orderplace />} />
+            </> :
+
               <>
                 <Route path="/Login" element={<Login />} />
                 <Route path="/Register" element={<Register />} />
               </>
           }
 
-
           <Route path="/" element={<Home />} />
           <Route path="/About" element={<About />} />
-          <Route path="/Addtocart" element={<Addtocart />} />
+
+
           <Route path="/Contact" element={<Contact />} />
           <Route path="/Detail" element={<Detail />} />
-          <Route path="/Vmore" element={<Vmore/>} />
+          <Route path="/Vmore" element={<Vmore />} />
+          <Route path="/Profile" element={<Profile />} />
         </Routes>
 
-        <Row className='footer'>
+        <Row className='footer' data-aos="zoom-in" data-aos-once="true" data-aos-duration="2000">
           <Col>
             <MDBFooter className='bg-light text-center text-white'>
               <MDBContainer className='p-4 pb-0'>
                 <section className='mb-4'>
                   <MDBBtn
+
                     floating
                     className='m-1'
                     style={{ backgroundColor: '#3b5998' }}
@@ -143,6 +156,7 @@ function App() {
                   </MDBBtn>
 
                   <MDBBtn
+
                     floating
                     className='m-1'
                     style={{ backgroundColor: '#55acee' }}
@@ -154,6 +168,7 @@ function App() {
                   </MDBBtn>
 
                   <MDBBtn
+
                     floating
                     className='m-1'
                     style={{ backgroundColor: '#dd4b39' }}
@@ -164,6 +179,7 @@ function App() {
                     <MDBIcon fab icon='google' />
                   </MDBBtn>
                   <MDBBtn
+
                     floating
                     className='m-1'
                     style={{ backgroundColor: '#ac2bac' }}
@@ -175,6 +191,7 @@ function App() {
                   </MDBBtn>
 
                   <MDBBtn
+
                     floating
                     className='m-1'
                     style={{ backgroundColor: '#0082ca' }}
@@ -186,6 +203,7 @@ function App() {
                   </MDBBtn>
 
                   <MDBBtn
+
                     floating
                     className='m-1'
                     style={{ backgroundColor: '#333333' }}
