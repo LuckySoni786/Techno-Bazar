@@ -6,7 +6,7 @@ const bodyParser = require('body-parser');
 const ctj = require('csvtojson')
 var app = express()
 app.use(cors({
-  origin: 'https://Techno-Bazar.vercel.app', 
+  origin: 'https://techno-bazar.vercel.app/', 
   methods: ['POST', 'GET'],  
   credentials: true 
 }));
