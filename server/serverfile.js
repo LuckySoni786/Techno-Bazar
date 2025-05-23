@@ -211,9 +211,9 @@ app.post('/addtocart',function(req,res){
       res.send(resultdata) 
 })
 
-app.listen(8080,function(err,data){
+app.listen(5000,function(err,data){
     if(err){
         console.log(err);
     }
-    console.log(`server started ${8080}`);
+    console.log(`server started ${5000}`);
 })
