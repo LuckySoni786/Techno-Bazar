@@ -29,7 +29,7 @@
                 }
                 console.log(params);
                 try {
-                    let res = await axios.post("register", params).catch(err => alert(err))
+                    let res = await axios.post("https://techno-bazar-api.vercel.app/register", params).catch(err => alert(err))
                     console.log(res.data);
                     let { success, message } = res.data
                     if (success) {
